@@ -1,0 +1,5 @@
+REPEAT
+	Prompt user for Height
+	Height is not less than 1 or not greater than 8
+	    Print FUNCTION Pyramid
+UNTIL Height is not less than 1 or not greater than 8
