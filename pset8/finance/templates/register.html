@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div class="card card-body">
+                <form action="/register" method="post">
+                    <div class="form-group mt-4">
+                        <h3>Register</h3>
+                    </div>
+                    <div class="form-group mt-3 ml-3 mr-3 text-left">
+                        <label for="username">Username</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" autofocus autocomplete="off" name="username" placeholder="6 or more characters" id="username">
+                        </div>
+                    </div>
+                    <div class="form-group mt-3 ml-3 mr-3 text-left">
+                        <label for="password">Password</label>
+                        <div class="input-group">
+                            <input class="form-control pass2" name="password" placeholder="6 or more characters" type="password" id="password">
+                            <div class="input-group-append">
+                                <div class="input-group-text"><a href="#" class="text-dark" id="icon-click-2" tabindex="-1"><i class="fa fa-eye" id="icon-2"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3 ml-3 mr-3 text-left">
+                        <label for="confirmation">Confirm Password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control pass3" name="confirmation" placeholder="6 or more characters" id="confirmation">
+                            <div class="input-group-append">
+                                <div class="input-group-text"><a href="#" class="text-dark" id="icon-click-3" tabindex="-1"><i class="fa fa-eye" id="icon-3"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="form-group btn btn-primary" type="submit">Continue</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

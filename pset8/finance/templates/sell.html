@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell Shares
+{% endblock %}
+
+{% block main %}
+    <form action="/sell" method="post" id="buy-form">
+        <h2>Sell Shares</h2><br>
+        <div class="form-group">
+            <label for="symbol"><strong>SYMBOL:</strong> &nbsp; &nbsp; </label>
+            <select class="form-control" id="symbol" name="symbol">
+                {% for stock in userStocks %}
+                    <option value="{{ stock['symbol'] }}">{{ stock['symbol'] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="shares" placeholder="Shares" type="number" id="shares">
+        </div>
+        <button href="#" class="btn btn-primary" type="submit">Sell</button>
+
+        {% if info  %}
+        <div class="form-group hide confirm-bg">
+            <div class="confirm-card">
+                <h4>Confirm Transaction</h4>
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">Qty.</th>
+                      <th scope="col">Symbol</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                        <tr>
+                          <td>{{ info['shares'] }}</td>
+                          <td>{{ info['symbol'] }}</td>
+                          <td><code class="cashy">{{ usd(info['price']) }}</code></td>
+                          <td><code class="cashy">{{ usd(info['cost']) }}</td>
+                        </tr>
+                  </tbody>
+                </table>
+                <div class="form-group"><span>You will recieve: <code style="color: blue;">{{ usd(info['cost']) }}</code></span></div>
+                <div class="form-group"><span>Current Cash: <code class="cash-green">{{ usd(info['cash']) }}</code></span></div>
+                <a href="/reset" class="confirmation btn btn-danger" onclick="cancelPurchase()">Cancel</a>
+               <button class="confirmation btn btn-primary" type="submit" id="confirm">Confirm</button>
+            </div>
+        </div>
+        {% endif %}
+    </form>
+
+    <script>
+        function cancelPurchase(){
+            var element = document.querySelector(".hide");
+            element.classList.toggle("confirm-bg");
+        }
+    </script>
+{% endblock %}

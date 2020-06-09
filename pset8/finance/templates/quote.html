@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <form action="/quote" method="post">
+        <h2>Quote</h2><br>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="symbol" placeholder="Symbol" type="text" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+    {% if get_flashed_messages() %}
+                <div class="text-center alert alert-success"  style="margin-top: 1em; padding-bottom: 0.5em; display: inline-block;">
+                    <p style="padding: 0 0 0.5em 0;margin: 0;">{{ get_flashed_messages() | join(" ") }}</p>
+                </div>
+    {% endif %}
+{% endblock %}

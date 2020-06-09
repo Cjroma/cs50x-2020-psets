@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Change Password
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div class="card card-body">
+                <form action="/changepass" method="post">
+                    <div class="form-group mt-4">
+                        <h3>Change Password</h3>
+                    </div>
+                    <div class="form-group mt-4 ml-3 mr-3 text-left">
+                        <label for="current-pass">Current Password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control pass1" name="current-pass" placeholder="Current Password">
+                            <div class="input-group-append">
+                                <div class="input-group-text"><a href="#" class="text-dark" tabindex="-1" id="icon-click-1"><i class="fa fa-eye" id="icon-1"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3 ml-3 mr-3 text-left">
+                        <label for="new-pass">New Password</label>
+                        <div class="input-group">
+                            <input class="form-control pass2" name="new-pass" placeholder="6 or more characters" type="password">
+                            <div class="input-group-append">
+                                <div class="input-group-text"><a href="#" class="text-dark" tabindex="-1" id="icon-click-2"><i class="fa fa-eye" id="icon-2"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3 ml-3 mr-3 text-left">
+                        <label for="confirm-pass">Confirm Password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control pass3" name="confirm-pass" placeholder="6 or more characters">
+                            <div class="input-group-append">
+                                <div class="input-group-text"><a href="#" class="text-dark" tabindex="-1" id="icon-click-3"><i class="fa fa-eye" id="icon-3"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="form-group btn btn-primary" type="submit">Continue</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

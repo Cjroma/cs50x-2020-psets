@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Transactions
+{% endblock %}
+
+{% block main %}
+    {% if transactions %}
+        <div class="stock">
+            <h3>Transactions</h3>
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Symbol</th>
+                        <th scope="col">Shares</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Transaction</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for transaction in transactions %}
+                        <tr>
+                            <td>{{ transaction['symbol'] }}</td>
+                            <td>{{ transaction['shares'] }}</td>
+                            <td><code class="cashy">{{ usd(transaction['cost']) }}</code></td>
+                            <td>{{ transaction['type'] }}</td>
+                            <td>{{ transaction['date']  }} UTC</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <h3>No previous transaction.</h3>
+    {% endif %}
+{% endblock %}
